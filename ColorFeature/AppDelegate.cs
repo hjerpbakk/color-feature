@@ -19,8 +19,11 @@ namespace ColorFeature
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // NavigationBar buttons are green, not red as before iOS 11
-            UIButton.Appearance.TintColor = UIColor.Green;
-            UINavigationBar.Appearance.TintColor = UIColor.Red;
+            // UIButton.Appearance.TintColor = UIColor.Green;
+            // UINavigationBar.Appearance.TintColor = UIColor.Red;
+
+            // The workaround
+            UIButton.AppearanceWhenContainedIn(typeof(UINavigationBar)).TintColor = UIColor.Red;
             return true;
         }
 
